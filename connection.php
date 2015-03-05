@@ -5,7 +5,7 @@
 		if(!$connection){
 			die ("could not connect to db." . mysql_error());
 		}else{
-			echo "db connection successfull";
+			echo "db connection successfull\n";
 		}
 
 	$db = mysql_select_db(DB_NAME, $connection);

@@ -8,40 +8,63 @@
 </head>
 <body>
 <?php 
-require_once "includes/navbar.php";
-require "connection.php";
-	if(isset($_POST['signin'])){
+require_once "connection.php";
+include "includes/navbar.php";
+	if(isset($_POST['signup'])){
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$mobno = $_POST['mobno'];
-		$pass1 = $_POST['password'];
-		$pass = md5($_POST['confpass']);
+		$pass = $_POST['password'];
+		$pass1 = $_POST['confpassword'];
 
 		$email_check = "SELECT id FROM data WHERE email='{$email}'";
 		$result_email_check = mysql_query($email_check);
+
 		if($result_email_check){
 			if(mysql_num_rows($result_email_check) == 1){
-				if($pass1 == $pass){
-					$query = "INSERT INTO data(name, email, mobno, pass) VALUES ('{$name}', '{$email}', '{$mobno}', '{$pass}'";
+				echo "
+					<script>
+						k$.status({
+							text: 'Already registered with this Email: email={$email}',
+							type: 'status-red',
+							delay: 3000
+						});
+					</script>
+				";
+			}else{
+				if($pass == $pass1){
+					$pass = md5($pass1);
+					$query = "INSERT INTO data(name, email, mobno, pass) VALUES ('{$name}', '{$email}', '{$mobno}', '{$pass}')";
 					$result_query = mysql_query($query);
 					if(!$result_query){
-						die "data not inserted." . mysql_query();
+						die ("data not inserted." . mysql_error());
 					}else{
-						$data = mysql_fetch_assoc($result_query);
-						$_SESSION['username'] = $data['name'];
-						$_SESSION['useremail'] = $data['email'];
-						$_SESSION['usermobno'] = $data['mobno'];
-						header("Location: home.php?registered=1");
+						$signup = "SELECT * FROM data WHERE email='{$email}'";
+						$result_signup = mysql_query($signup);
+						if($result_signup){
+							$data = mysql_fetch_assoc($result_signup);
+							$_SESSION['userid'] = $data['id'];
+							$_SESSION['username'] = $data['name'];
+							$_SESSION['useremail'] = $data['email'];
+							$_SESSION['usermobno'] = $data['mobno'];
+							header("Location: home.php?registered=1");
+						}
 					}
-				}echo "password don't match." mysql_error();
+				}else{
+					echo "
+						<script>
+							k$.status ({
+								text: 'Passwords don\'t match.',
+								type: 'status-red',
+								delay: 3000
+							});
+						</script>
+					";
+				}
 			}
-		}else{
-			echo "you are not registered." . mysql_error(); 
 		}
 	}
-
 ?>
-	
 	<h2>Signup</h2>
 	<form method="post" action="signup.php">
 		<table>
@@ -67,7 +90,7 @@ require "connection.php";
 			</tr>
 			<tr>
 				<td></td>
-				<td><input name="signup" type="submit" value="Signup"</td>
+				<td><input class="button button-green" name="signup" type="submit" value="Signup"</td>
 			</tr>
 		</table>
 	</form>
