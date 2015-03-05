@@ -1,0 +1,8 @@
+CREATE TABLE `data`(
+	id INT(10) AUTO_INCREMENT NOT NULL,
+	name VARCHAR(30),
+	email VARCHAR(40),
+	mobno BIGINT(10),
+	pass VARCHAR(255),
+	PRIMARY KEY(id)
+);
