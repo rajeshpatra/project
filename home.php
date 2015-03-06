@@ -8,10 +8,10 @@
 </head>
 <body>
 <?php
- include "includes/navbar.php";
  require_once "connection.php";
+ include "includes/navbar.php";
  ?>
-<!-- <div class="container main">
+<div class="container main">
 <section class="row">
 	<div class="col-left-1 col-10">
 		<h2>Hi, there!</h2>
@@ -29,7 +29,7 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 </section>
-</div> -->
+</div>
 
 	<?php 
 		if(isset($_GET['login'])){
