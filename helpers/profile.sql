@@ -4,5 +4,6 @@ CREATE TABLE `data`(
 	email VARCHAR(40),
 	mobno BIGINT(10),
 	pass VARCHAR(255),
+	sex VARCHAR(10),
 	PRIMARY KEY(id)
 );
