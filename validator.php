@@ -6,8 +6,13 @@ function validateForm() {
 	return false;
 	}
 
+	emailregexp = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 	if(document.f_signup.email.value == ""){
 	alert("Please provide your email!");
+	document.f_signup.email.focus();
+	return false;
+	}else if(!emailregexp.test(document.f_signup.email.value)){
+	alert("Please enter a valid email!");
 	document.f_signup.email.focus();
 	return false;
 	}
