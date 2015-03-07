@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="dist/css/kickstart.css">
 	<link rel="stylesheet" type="text/css" href="dist/css/style.css">
 	<script type="text/javascript" src="dist/js/kickstart.js"></script>
-	<script type="text/javascript" src="validator.php"></script>
+	<script type="text/javascript" src="validator.js"></script>
 </head>
 <body>
 <?php 
@@ -113,7 +113,7 @@ include "includes/navbar.php";
 				<td><input name="email" type="text" placeholder="user@email.com"></td>
 			</tr>
 			<tr>
-				<td><label>I am:</label></td>
+				<td><label>I am</label></td>
 				<td>
 					<select name="sex">
 						<option value="0" selected="selected">Select</option>
