@@ -13,6 +13,7 @@ include "includes/navbar.php";
 	if(isset($_POST['signup'])){
 		$name = $_POST['name'];
 		$email = $_POST['email'];
+		$sex = $_POST['sex'];
 		$mobno = $_POST['mobno'];
 		$pass = $_POST['password'];
 		$pass1 = $_POST['confpassword'];
@@ -34,7 +35,7 @@ include "includes/navbar.php";
 			}else{
 				if($pass == $pass1){
 					$pass = md5($pass1);
-					$query = "INSERT INTO data(name, email, mobno, pass) VALUES ('{$name}', '{$email}', '{$mobno}', '{$pass}')";
+					$query = "INSERT INTO data(name, email, mobno, pass,sex) VALUES ('{$name}', '{$email}', '{$mobno}', '{$pass}', '{$sex}')";
 					$result_query = mysql_query($query);
 					if(!$result_query){
 						die ("data not inserted." . mysql_error());
@@ -75,6 +76,16 @@ include "includes/navbar.php";
 			<tr>
 				<td><label>Email</label></td>
 				<td><input name="email" type="text" placeholder="user@email.com"></td>
+			</tr>
+			<tr>
+				<td><label>I am:</label></td>
+				<td>
+					<select name="sex">
+						<option value="000" selected="selected">Select</option>
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td><label>Mobile No</label></td>
