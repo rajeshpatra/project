@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="dist/css/kickstart.css">
 	<link rel="stylesheet" type="text/css" href="dist/css/style.css">
 	<script type="text/javascript" src="dist/js/kickstart.js"></script>
+	<script type="text/javascript" src="validator.php"></script>
 </head>
 <body>
 <?php 
@@ -65,9 +66,43 @@ include "includes/navbar.php";
 			}
 		}
 	}
+
+	// missing jquery file......
+
+	// $(document).ready(function(){
+		// $('#f_signup').validate({         // why the # is used before form name.
+	// 		rules: {
+	// 			name: {
+	// 				required: true
+	// 			},
+
+	// 			email: {
+	// 				required: true,
+	// 				email: true
+	// 			},
+
+	// 			sex: {
+	// 				required: true
+	// 			},
+
+	// 			mobno: {
+	// 				minlength: 10,
+	// 				required: true
+	// 			},
+
+	// 			password: {
+	// 				required: true
+	// 			},
+
+	// 			confpassword: {
+	// 				required: true
+	// 			}
+	// 		}
+	// 	});
+	// });
 ?>
 	<h2>Signup</h2>
-	<form method="post" action="signup.php">
+	<form name="f_signup" method="post" action="signup.php" onsubmit="return validateForm()">
 		<table>
 			<tr>
 				<td><label>Name</label></td>
@@ -81,7 +116,7 @@ include "includes/navbar.php";
 				<td><label>I am:</label></td>
 				<td>
 					<select name="sex">
-						<option value="000" selected="selected">Select</option>
+						<option value="0" selected="selected">Select</option>
 						<option value="M">Male</option>
 						<option value="F">Female</option>
 					</select>
