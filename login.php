@@ -68,7 +68,7 @@ include "includes/navbar.php";
 	}
  ?>
 <h2>Login</h2>
-	<form method="post" action="login.php">
+	<form name="f_login" method="post" action="login.php">
 		<table>
 			<tr>
 				<td><label>Email</label></td>

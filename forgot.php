@@ -54,7 +54,7 @@
  	}
 ?>
 <h2>Forgot Password</h2>
-	<form method="post" action="forgot.php">
+	<form name="f_forgot" method="post" action="forgot.php">
 		<table>
 			<tr>
 				<td><label>Email</label></td>
