@@ -23,10 +23,15 @@ function validateForm() {
 	return false;
 	}
 
+	mobnoregexp = /^[0-9]{10}$/;
 	if(document.f_signup.mobno.value == ""){
 	alert("Please provide your mobile number!");
 	document.f_signup.mobono.focus();
 	return false;
+	}else if(!mobnoregexp.test(document.f_signup.mobno.value)){
+		alert("Please provide 10 digit number!");
+		document.f_signup.mobno.focus();
+		return false;
 	}
 
 	if(document.f_signup.password.value == ""){
