@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="dist/css/style.css">
 	<script type="text/javascript" src="dist/js/kickstart.js"></script>
 	<script type="text/javascript" src="validator.js"></script>
+	<!-- // <script type="text/javascript" src="valid.js"></script>   --> <!-- # required validation jquery file -->
 </head>
 <body>
 <?php 
@@ -66,40 +67,6 @@ include "includes/navbar.php";
 			}
 		}
 	}
-
-	// missing jquery file......
-
-	// $(document).ready(function(){
-		// $('#f_signup').validate({         // why the # is used before form name.
-	// 		rules: {
-	// 			name: {
-	// 				required: true
-	// 			},
-
-	// 			email: {
-	// 				required: true,
-	// 				email: true
-	// 			},
-
-	// 			sex: {
-	// 				required: true
-	// 			},
-
-	// 			mobno: {
-	// 				minlength: 10,
-	// 				required: true
-	// 			},
-
-	// 			password: {
-	// 				required: true
-	// 			},
-
-	// 			confpassword: {
-	// 				required: true
-	// 			}
-	// 		}
-	// 	});
-	// });
 ?>
 	<h2>Signup</h2>
 	<form name="f_signup" method="post" action="signup.php" onsubmit="return validateForm()">

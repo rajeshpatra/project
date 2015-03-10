@@ -12,9 +12,9 @@ function validateForm() {
 	document.f_signup.email.focus();
 	return false;
 	}else if(!emailregexp.test(document.f_signup.email.value)){
-	alert("Please enter a valid email!");
-	document.f_signup.email.focus();
-	return false;
+		alert("Please enter a valid email!");
+		document.f_signup.email.focus();
+		return false;
 	}
 
 	if(document.f_signup.sex.value == "0"){
@@ -26,7 +26,7 @@ function validateForm() {
 	mobnoregexp = /^[0-9]{10}$/;
 	if(document.f_signup.mobno.value == ""){
 	alert("Please provide your mobile number!");
-	document.f_signup.mobono.focus();
+	document.f_signup.mobno.focus();
 	return false;
 	}else if(!mobnoregexp.test(document.f_signup.mobno.value)){
 		alert("Please provide 10 digit number!");
