@@ -5,13 +5,13 @@
 		if(!$connection){
 			die ("could not connect to db." . mysql_error());
 		}else{
-			echo "db connection successfull\n";
+			// echo "db connection successfull\n";
 		}
 
 	$db = mysql_select_db(DB_NAME, $connection);
 		if(!$db){
 			die ("could not select db." . mysql_error());
 		}else{
-			echo "db selection successfull";
+			// echo "db selection successfull";
 		}
 ?>
